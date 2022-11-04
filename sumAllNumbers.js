@@ -16,7 +16,17 @@
  */
 
 function sumAll(arr){
-    return 1;
+    let maxNum = Math.max(...arr);
+    let minNum = Math.min(...arr);
+
+    let numberRange = 1 + (maxNum - minNum)
+    let rangeArr = [];
+
+    for(let i = 0; i < numberRange; i++){
+        rangeArr.push(minNum + i);
+    }
+
+    return rangeArr.reduce((accumulator, initialValue)=>accumulator+=initialValue);
 }
 
-sumAll([1, 4])
+console.log(sumAll([1, 4]));
