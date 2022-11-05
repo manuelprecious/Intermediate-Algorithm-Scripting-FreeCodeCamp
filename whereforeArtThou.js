@@ -20,3 +20,14 @@
  * whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}) should return []
  * whatIsInAName([{"a": 1, "b": 2, "c": 3, "d": 9999}], {"a": 1, "b": 9999, "c": 3}) should return []
  */
+
+ function whatIsInAName(collection, source) {
+    const sourceKeys = Object.keys(source);
+
+    return collection.filter(obj=>sourceKeys
+        .every(key=>obj.hasOwnProperty(key) &&
+        obj[key] === source[key]
+        ));
+  };
+  
+  console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
